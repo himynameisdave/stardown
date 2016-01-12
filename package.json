@@ -4,12 +4,12 @@
   "description": "A simple app to compare two GitHub users.",
   "main": "public/index.js",
   "scripts": {
-    "doge-app": "dogescript src/app.djs > .tmp/app.js --beautify",
-    "uglify-and-inject": "node scripts/inject-js-to-html.js",
+    "compile-server": "dogescript server.djs > server.js",
     "compile-app": "browserify src/app.djs -o .tmp/bundle.js -t [ dogeify babelify --presets [ es2015 ] ]",
-    "compile-server": "dogescript scripts/server.djs > server.js",
-    "compile": "npm run compile-app && npm run uglify-and-inject",
-    "start": "npm run compile-server && node server.js"
+    "uglify-app": "uglifyjs ./.tmp/bundle.js -o ./public/app.js",
+    "compile": "npm run compile-app && npm run uglify-app",
+    "start": "npm run compile-server && node server.js",
+    "postinstall": "npm run compile"
   },
   "repository": {
     "type": "git",
