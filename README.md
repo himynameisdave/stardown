@@ -1,6 +1,8 @@
 ## stardown
 A simple showdown between two GitHub users!
 
+![example](http://i.imgur.com/xb5UzpD.png)
+
 #### Purpose
 
 The goal of this project was to learn [dogescript](https://dogescript.com/) because it seemed like a fun challenge.
