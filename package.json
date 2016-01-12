@@ -1,0 +1,38 @@
+{
+  "name": "stardown",
+  "version": "0.1.0",
+  "description": "A simple app to compare two GitHub users.",
+  "main": "public/index.js",
+  "scripts": {
+    "doge-app": "dogescript src/app.djs > .tmp/app.js --beautify",
+    "uglify-and-inject": "node scripts/inject-js-to-html.js",
+    "compile-app": "browserify src/app.djs -o .tmp/bundle.js -t [ dogeify babelify --presets [ es2015 ] ]",
+    "compile-server": "dogescript scripts/server.djs > server.js",
+    "compile": "npm run compile-app && npm run uglify-and-inject",
+    "start": "npm run compile-server && node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/himynameisdave/stardown.git"
+  },
+  "author": "himynameisdave",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/himynameisdave/stardown/issues"
+  },
+  "homepage": "https://github.com/himynameisdave/stardown#readme",
+  "dependencies": {
+    "browserify": "^13.0.0",
+    "dogeify": "0.0.1",
+    "dogescript": "^2.3.0",
+    "express": "^4.13.3",
+    "github": "^0.2.4",
+    "octonode": "^0.7.4",
+    "require-doge": "^0.1.6"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babelify": "^7.2.0",
+    "uglifyjs": "^2.4.10"
+  }
+}
